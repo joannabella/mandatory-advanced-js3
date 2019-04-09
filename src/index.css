@@ -6,9 +6,268 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: no-repeat center center fixed;
+  background-image: url(https://wallpaperaccess.com/full/632787.jpg);
+  background-size: cover;
+  height: 100vh;
+  text-shadow: -1px 1px 50px black;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.nav-header {
+  font-family: 'Lobster', cursive;
+  height: 90px;
+  background-color: #89678ca3;
+  box-shadow: 0px -7px 35px 0px #00000063;
+  line-height: 93px;
+  text-align: right;
+  color: #fff;
+}
+
+.app-title {
+  display: inline-block;
+  position: absolute;
+  left: 25px;
+  line-height: 40px;
+  font-size: 33px;
+}
+
+.register-link, .login-link, .logout-link {
+  position: relative;
+  right: 250px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.register-link {
+  margin-right: 50px;
+}
+
+.logout-link {
+  font-family: 'Lobster', cursive;
+  background-color: transparent;
+  text-shadow: -1px 1px 50px black;
+  border: none;
+  cursor: pointer;
+}
+
+.login-error, .register-error {
+  margin-top: 235px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  position: absolute;
+  color: #ea568a;
+  font-weight: 700;
+}
+
+.register-error {
+  margin-top: 205px;
+}
+
+.loggedin-user {
+  font-family: 'Lobster', cursive;
+  position: fixed;
+  right: 25px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.register-form, .login-form {
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+  height: 400px;
+  margin: 0 auto;
+  margin-top: 40px;
+  background-color: #19020963;
+  padding: 30px;
+  color: rgba(255, 255, 255, 0.81);
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.81);
+}
+
+.login-link-register {
+  text-shadow: -1px 1px 50px black;
+}
+
+.login-link-register > a {
+  text-decoration: none;
+  color: #ea568a;
+  margin-left: 5px;
+}
+
+.login-link-register > a:hover {
+  text-decoration: underline;
+} 
+
+.userfield {
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.81);
+  border-radius: 4px 4px 0 0;
+  background-color: transparent;
+  padding-left: 16px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.81);
+  width: 413px;
+  height: 45px;
+  outline: none;
+}
+
+.register-label {
+  text-align: left;
+}
+
+.register-button, .login-button {
+  position: relative;
+  top: 125px;
+  width: 315px;
+  height: 37px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  background-image: linear-gradient(to right, #ff5b8e,  rgb(207, 106, 108));
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  transition: .2s ease;
+  text-transform: uppercase;
+  margin: 0 auto;
+}
+
+.register-button {
+  top: 143px;
+}
+
+.register-button:hover, .login-button:hover {
+  background-image: linear-gradient(to right,  rgb(207, 106, 108),   #ff5b8e);
+  transform: translateY(-10%);
+}
+
+.todo-list-title {
+  margin-top: 0;
+  margin-bottom: 45px;
+  text-transform: uppercase;
+}
+
+.todo-content {
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+  height: 400px;
+  margin: 0 auto;
+  margin-top: -40px;
+  background-color: #19020963;
+  padding: 30px;
+  color: rgba(255, 255, 255, 0.81);
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.add-input {
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.81);
+  border-radius: 4px 4px 0 0;
+  background-color: transparent;
+  padding-left: 16px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.81);
+  width: 419px;
+  height: 45px;
+  outline: none;
+  position: relative;
+  top: 97px;
+  left: 21px;
+  z-index: 1000;
+}
+
+.add-input.error::placeholder {
+  color: #E91E63;
+}
+
+.add-button {
+  position: relative;
+  top: 103px;
+  right: 17px;
+  width: 41px;
+  height: 40px;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+  transition: .2s ease;
+  font-size: 17px;
+  z-index: 1000;
+}
+
+.add-button:hover {
+  color: #E91E63;
+  transform: translateY(-5%);
+}
+
+.todo-list {
+  position: relative;
+  top: 10px;
+  list-style-type: circle;
+  text-align: left;
+  padding-left: 18px;
+  min-height: 305px;
+  overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.todo-item {
+  margin-bottom: 10px;
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
+}
+
+.delete-button {
+  position: absolute;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.delete-button:hover {
+  color: #E91E63;
+}
+
+@media (max-width: 450px) {
+  .nav-header {
+    width: 1000px;
+  }
+  .add-input {
+    top: 133px;
+    left: 282px;
+  }
+}
+
+
+
+

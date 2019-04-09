@@ -1,26 +1,58 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Route } from 'react-router';
+import { Link } from 'react-router-dom';
+import { token$, updateToken, removeToken } from './store';
+import jwt from 'jsonwebtoken';
 import './App.css';
+import Register from './Register';
+import Login from './Login';
+import Todos from './Todos';
+//import Details from './Details';
+
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      token: token$.value,
+      email: '',
+    }
+  }
+  componentDidMount() {
+    this.subscription = token$.subscribe( (token) => {
+      this.setState({ token });
+      const decoded = jwt.decode(token);
+      if (decoded) {
+        this.setState({ email: decoded.email });
+      }
+    });  
+  }
+
+  componentWillUnmount() {
+    this.subscription.unsubscribe();
+  }
+
+  onLogout(event) {
+    removeToken();
+  }
+
   render() {
+    const token = this.state.token;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div className="App">
+        <header className='nav-header'>
+          <h1 className='app-title'>listmeister.</h1>
+          <Link to='/register' className='register-link'>register</Link>
+          {token ? <button className='logout-link' onClick={this.onLogout}>log out</button> : <Link to='/login' className='login-link'>log in</Link>}
+          {token ? <span className='loggedin-user'>Welcome, {this.state.email}</span> : null}
+        </header>  
+          <Route path='/register' component={Register} />
+          <Route path='/login' component={Login} />
+          <Route path='/todos' component={Todos} />
+        </div>
+      </Router>
     );
   }
 }
