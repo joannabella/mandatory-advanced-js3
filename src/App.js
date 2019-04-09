@@ -45,7 +45,7 @@ class App extends Component {
         <header className='nav-header'>
           <h1 className='app-title'>listmeister.</h1>
           <Link to='/register' className='register-link'>register</Link>
-          {token ? <button className='logout-link' onClick={this.onLogout}>log out</button> : <Link to='/login' className='login-link'>log in</Link>}
+          {token ? <button className='logout-link' onClick={this.onLogout}>logout</button> : <Link to='/login' className='login-link'>login</Link>}
           {token ? <span className='loggedin-user'>Welcome, {this.state.email}</span> : null}
         </header>  
           <Route path='/register' component={Register} />

@@ -130,6 +130,10 @@ code {
   text-align: left;
 }
 
+.welcome-text {
+  color: #E91E63;
+}
+
 .register-button, .login-button {
   position: relative;
   top: 125px;
@@ -147,10 +151,6 @@ code {
   transition: .2s ease;
   text-transform: uppercase;
   margin: 0 auto;
-}
-
-.register-button {
-  top: 143px;
 }
 
 .register-button:hover, .login-button:hover {

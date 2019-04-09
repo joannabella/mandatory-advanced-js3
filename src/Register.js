@@ -63,6 +63,7 @@ class Register extends Component {
 
                 <label className='register-label' htmlFor='pickpassword'></label>  
                 <input className='userfield' name='pickpassword' onChange={this.onPassword} value={this.state.password} type='password' name='password' placeholder='Password' spellCheck='false' autoComplete='off' required='required'></input>  
+                <span className='login-link-register'>Hello there, welcome to team <span className='welcome-text'>listmeister!</span></span>
                 <span className='register-error'>{this.state.errorMessage}</span>
 
                 <button className='register-button' type='submit' onClick={this.register}>Submit</button>
