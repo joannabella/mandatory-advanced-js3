@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Route } from 'react-router';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 //import Home from './Home';
@@ -45,12 +43,15 @@ class Register extends Component {
                     this.setState({ errorMessage: 'Please fill in the missing field/s!', color: 'white' });
                 }
                 else {
-                    this.setState({ errorMessage: 'The email or password that was provided has an invalid format' });
+                    this.setState({ errorMessage: 'The email or password is invalid or has already been taken!' });
                 }
             })
     }
 
     render() {
+        if (this.state.isRegistered) {
+            return <Redirect to='/login'/>
+        }
         return (
             <>
             <Helmet>

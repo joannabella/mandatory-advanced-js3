@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Route } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Redirect } from 'react-router-dom';
-import { token$, updateToken, removeToken } from './store';
+import { updateToken } from './store';
 import axios from 'axios';
 import './App.css';
 
@@ -44,7 +42,12 @@ class Login extends Component {
                 localStorage.setItem('token', token);
             })
             .catch((error) => {
-                this.setState({ errorMessage: 'Email or password is invalid!' });
+                if (this.state.email === '' || this.state.password === '') {
+                    this.setState({ errorMessage: 'Please fill in the missing field/s!' });
+                }
+                else {
+                    this.setState({ errorMessage: 'The email or password that was provided has an invalid format' });
+                }
             })
     }
 

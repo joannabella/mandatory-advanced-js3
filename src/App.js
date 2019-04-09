@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router';
 import { Link } from 'react-router-dom';
-import { token$, updateToken, removeToken } from './store';
+import { token$, removeToken } from './store';
 import jwt from 'jsonwebtoken';
 import './App.css';
 import Register from './Register';

@@ -64,10 +64,11 @@ code {
   position: absolute;
   color: #ea568a;
   font-weight: 700;
+  width: 350px;
 }
 
 .register-error {
-  margin-top: 205px;
+  margin-top: 235px;
 }
 
 .loggedin-user {

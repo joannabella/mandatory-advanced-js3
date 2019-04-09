@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Redirect } from 'react-router-dom';
-import { token$, updateToken, removeToken } from './store';
+import { token$, removeToken } from './store';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
 import './App.css';
