@@ -8,7 +8,6 @@ import './App.css';
 import Register from './Register';
 import Login from './Login';
 import Todos from './Todos';
-//import Details from './Details';
 
 
 class App extends Component {
@@ -44,9 +43,8 @@ class App extends Component {
         <div className="App">
         <header className='nav-header'>
           <h1 className='app-title'>listmeister.</h1>
-          <Link to='/register' className='register-link'>register</Link>
+          {token ? <span className='loggedin-user'>Welcome, {this.state.email}</span> : <Link to='/register' className='register-link'>register</Link>}
           {token ? <button className='logout-link' onClick={this.onLogout}>logout</button> : <Link to='/login' className='login-link'>login</Link>}
-          {token ? <span className='loggedin-user'>Welcome, {this.state.email}</span> : null}
         </header>  
           <Route path='/register' component={Register} />
           <Route path='/login' component={Login} />

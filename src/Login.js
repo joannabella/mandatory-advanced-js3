@@ -35,7 +35,6 @@ class Login extends Component {
         event.preventDefault();
         axios.post('http://ec2-13-53-32-89.eu-north-1.compute.amazonaws.com:3000' + '/auth', { email: this.state.email, password: this.state.password })
             .then((response) => {
-                console.log(response);
                 let token = response.data.token;
                 updateToken(token);
                 this.setState({ isLoggedIn: true });

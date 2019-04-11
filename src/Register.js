@@ -3,10 +3,6 @@ import { Helmet } from 'react-helmet';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-//import Home from './Home';
-//import Add from './Add';
-//import Edit from './Edit';
-//import Details from './Details';
 
 
 class Register extends Component {
@@ -35,12 +31,11 @@ class Register extends Component {
         event.preventDefault();
         axios.post('http://ec2-13-53-32-89.eu-north-1.compute.amazonaws.com:3000/register', { email: this.state.email, password: this.state.password })
             .then((response) => {
-                console.log(response);
                 this.setState({ isRegistered: true });
             })
             .catch((error) => {
                 if (this.state.email === '' || this.state.password === '') {
-                    this.setState({ errorMessage: 'Please fill in the missing field/s!', color: 'white' });
+                    this.setState({ errorMessage: 'Please fill in the missing field/s!' });
                 }
                 else {
                     this.setState({ errorMessage: 'The email or password is invalid or has already been taken!' });

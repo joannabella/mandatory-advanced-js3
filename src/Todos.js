@@ -25,14 +25,9 @@ class Todos extends Component {
     loadTodos() {
         axios.get('http://ec2-13-53-32-89.eu-north-1.compute.amazonaws.com:3000/todos', { headers: {Authorization: 'Bearer ' + this.state.token }})
         .then((response) => {
-            console.log(response.data);
             this.setState({ todos: response.data.todos });
         })
         .catch((error) => {
-            /**
-             * Assume token expired
-             */
-            console.log("TEST");
             removeToken();
         })
     }
@@ -43,8 +38,6 @@ class Todos extends Component {
             const decoded = jwt.decode(this.state.token);
             this.setState( {email: decoded.email });
         });  
-        //console.log(decoded);
-        
         this.loadTodos();
     }
 
@@ -60,12 +53,11 @@ class Todos extends Component {
         event.preventDefault();
         axios.post('http://ec2-13-53-32-89.eu-north-1.compute.amazonaws.com:3000/todos', { content: this.state.content }, { headers: {Authorization: 'Bearer ' + this.state.token }})
             .then((response) => {
-                console.log(response);
                 this.setState({ content: '' });
                 return this.loadTodos();
             })
             .catch((error) => {
-                this.setState({ errorMessage: 'Something went wrong... try again!' });
+                this.setState({ errorMessage: 'Please fill in this field...' });
                 this.loadTodos();
             })
     }
@@ -74,11 +66,10 @@ class Todos extends Component {
         event.preventDefault();
         axios.delete('http://ec2-13-53-32-89.eu-north-1.compute.amazonaws.com:3000/todos/' + todoId, { headers: {Authorization: 'Bearer ' + this.state.token }})
             .then(() => {
-                console.log('Successfully deleted'); 
                 return this.loadTodos();               
             })
             .catch((error) => {
-                this.setState({ errorMessage: 'Something went wrong... try again!' });
+                this.setState({ errorMessage: 'Something went wrong...' });
                 this.loadTodos();
             })
     }

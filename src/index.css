@@ -53,6 +53,7 @@ code {
   font-family: 'Lobster', cursive;
   background-color: transparent;
   text-shadow: -1px 1px 50px black;
+  right: 25px;
   border: none;
   cursor: pointer;
 }
@@ -74,10 +75,10 @@ code {
 .loggedin-user {
   font-family: 'Lobster', cursive;
   position: fixed;
-  right: 25px;
+  right: 205px;
   color: #fff;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 .register-form, .login-form {
@@ -132,7 +133,7 @@ code {
 }
 
 .welcome-text {
-  color: #E91E63;
+  color: #ea568a;
 }
 
 .register-button, .login-button {
@@ -171,7 +172,7 @@ code {
   width: 430px;
   height: 400px;
   margin: 0 auto;
-  margin-top: -40px;
+  margin-top: -10px;
   background-color: #19020963;
   padding: 30px;
   color: rgba(255, 255, 255, 0.81);
@@ -186,14 +187,13 @@ code {
   border-radius: 4px 4px 0 0;
   background-color: transparent;
   padding-left: 16px;
-  margin-bottom: 20px;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.81);
   width: 419px;
   height: 45px;
   outline: none;
   position: relative;
-  top: 97px;
+  top: 105px;
   left: 21px;
   z-index: 1000;
 }
@@ -204,7 +204,7 @@ code {
 
 .add-button {
   position: relative;
-  top: 103px;
+  top: 110px;
   right: 17px;
   width: 41px;
   height: 40px;
@@ -225,12 +225,12 @@ code {
 
 .todo-list {
   position: relative;
-  top: 10px;
   list-style-type: circle;
   text-align: left;
   padding-left: 18px;
   min-height: 305px;
   overflow: scroll;
+  padding-top: 5px;
 }
 
 ::-webkit-scrollbar {
@@ -239,6 +239,7 @@ code {
 
 .todo-item {
   margin-bottom: 10px;
+  margin-top: 3px;
   border-bottom: 1px solid white;
   padding-bottom: 10px;
 }

@@ -3,7 +3,6 @@ import { BehaviorSubject } from 'rxjs';
 export const token$ = new BehaviorSubject(window.localStorage.getItem('token') || null );
 
 export function updateToken(newToken) {
-    console.log(newToken);
     if (!newToken) {
         window.localStorage.removeItem('token');
     }
